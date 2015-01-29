@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>.: Zuehlke Demo :.</title>
+
+    <meta name="description" content="A DEMO Presentation with a zuehlke Template and the reveal.js presentation framework">
+    <meta name="author" content="Type your name here">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/theme/zuehlke.css" id="theme">
+
+    <link rel="stylesheet" href="css/presentation.css" id="theme">
+
+    <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Gochi+Hand' rel='stylesheet' type='text/css'>
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+        if (window.location.search.match(/print-pdf/gi)) {
+            var defaultStylesheet = createStylesheetLink('css/print/pdf.css'),
+                zuehlkeStylesheet = createStylesheetLink('css/print/pdf-zuehlke.css');
+
+            document.getElementsByTagName('head')[0].appendChild(defaultStylesheet);
+            document.getElementsByTagName('head')[0].appendChild(zuehlkeStylesheet);
+        }
+
+        function createStylesheetLink(href) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = href;
+
+            return link;
+        }
+    </script>
+
+    <!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+    <div class="reveal">
+
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <span id="zuehlke-header" class="zuehlke-header hide"></span>
+            <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=1>
+                <div class="zuehlke-center">
+                    <div class="zuehlke-splash-title">REST in peace</div>
+                </div>
+            </section>
+            <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
+                <div>
+                    <ul>
+                        <li>
+                            Intro 2'
+                        </li>
+                        <li>
+                            Basics 10'
+                        </li>
+                        <li>
+                            Conventions (Examples) 20'
+                        </li>
+                        <li>
+                            Hands-On
+                            <ul>
+                                <li>Architektur</li>
+                                <li>Case to Check</li>
+                                <li>REST@SAM (Guidelines and Tooling)</li>
+                                <li>Review</li>
+                            </ul>
+                        </li>
+                        <li>Deep Dive with forecast</li>
+                        <li>QA Session</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+        // Full list of configuration options available here:
+         // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'images/presentation/sidney_night.jpg',
+            // parallaxBackgroundSize: '5241px 1116px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function () {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true,
+                condition: function () {
+                    return !!document.body.classList;
+                }
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true,
+                condition: function () {
+                    return !!document.body.classList;
+                }
+            }, {
+                src: 'plugin/zuehlke/zuehlke.js',
+                condition: function () {
+                    return true;
+                }
+            }, {
+                src: 'plugin/chart/chart.js',
+                async: false,
+                condition: function () {
+                    return true;
+                }
+            }, {
+                src: 'js/presentation.js',
+                async: false,
+                condition: function () {
+                    return true;
+                }
+            }]
+        });
+    </script>
+
+</body>
+
+</html>
