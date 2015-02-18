@@ -121,18 +121,88 @@
                 </div>
             </section>
             <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
-                <div>
-                    <h2>Forecast possible topics -> Dani</h2>
-                    
+                <section>
+                    <div>
+                        <h2>Forecast possible topics -> Dani</h2>
+
+                        <ul>
+                            <li>Expand</li>
+                            <li>Patch</li>
+                            <li>Versioning</li>
+                            <li>Response types</li>
+                            <li>Security</li>
+                            <li>Error Handling</li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <h2>Expand</h2>
+                    <p>Department is not expanded</p>
+                    <pre><code>
+{
+    name: "John",
+    prename : "Doe",
+    department : 1234
+}
+                    </code></pre>
+                    <p>Department is expanded</p>
+                    <pre><code>
+{ 
+    name: "John",
+    prename : "Doe",
+    department : { 
+        id: 1234,
+        name: "MYA",
+        street: "Hardturmstrasse 4",
+        zipCode: 8005,
+        city: "Zürich"
+    }
+}
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>PATCH</h2>
                     <ul>
-                        <li>Expand</li>
-                        <li>Patch</li>
-                        <li>Versioning</li>
-                        <li>Response types</li>
-                        <li>Security</li>
-                        <li>Error Handling</li>
+                        <li>RFC 5789 - HTTP PATCH</li>
+                        <li>Partial Update of a Resource</li>
+                        <li>PATCH must patch atomically</li>
+                        <li>Not idempotent (Altough Can be implemented as so)</li>
                     </ul>
-                </div>
+                </section> 
+                <section>
+                    <h2>PATCH</h2>
+                    <code> GET ./rest/employees/123</code><br/>
+                    <pre><code>
+Response:
+{ 
+    [...]
+    salary: 5800
+}
+                     </code></pre>
+                    
+                    <code> PATCH ./rest/employees/123</code><br/>
+                    <pre><code>
+Body:
+{
+    salary : 6000 
+}
+                    </code></pre>
+                
+                                    <code> GET ./rest/employees/123</code><br/>
+                    <pre><code>
+Response:
+{ 
+    [...]
+    salary: 6000
+}
+  </code></pre>        
+                </section>
+                <section>
+                    <h2>Versioning</h2>
+                </section>
+                <section>
+                    <h2>Response Types</h2>
+                </section>
             </section>
         </div>
     </div>
