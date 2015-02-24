@@ -255,8 +255,8 @@ RETURN
                         <p><strong>Wichtig:</strong> Diese Methoden sollten keinen Body haben, die notwendigen Parameter befinden sich in der URL.</p>
   
                         <pre><code>
-GET     http://transport.opendata.ch/v1/locations
-DELETE  http://transport.opendata.ch/v1/locations/1234
+GET     http://transport.opendata.ch/v1/stations
+DELETE  http://transport.opendata.ch/v1/stations/1234
 
 </code></pre>             
                     </div>
@@ -268,13 +268,13 @@ DELETE  http://transport.opendata.ch/v1/locations/1234
                         <p>Beide Methoden können für CREATE und UPDATE verwendet werden.</p>
   
                         <pre><code>
-POST http://transport.opendata.ch/v1/locations
+POST http://transport.opendata.ch/v1/stations
 
 {
     name : "Zürich Hauptbahnhof"
 }
 
-PUT http://transport.opendata.ch/v1/locations/8765
+PUT http://transport.opendata.ch/v1/stations/8765
 
 {
     name : "Zürich Hauptbahnhof"
@@ -301,7 +301,7 @@ PUT http://transport.opendata.ch/v1/locations/8765
                         <p>POST ist <strong>nicht</strong> idempotent:</p>
                         
                         <pre><code>
-POST http://transport.opendata.ch/v1/locations
+POST http://transport.opendata.ch/v1/stations
 
 {
     name : "Zürich Hauptbahnhof"
@@ -309,7 +309,7 @@ POST http://transport.opendata.ch/v1/locations
 
 ==>
 201 Created
-Location: /locations/4444
+Location: /stations/4444
 
 </code></pre>                                   
   
@@ -321,7 +321,7 @@ Location: /locations/4444
                     <div>
                         <h2>POST & PUT</h2>                          
                         <pre><code>
-POST http://transport.opendata.ch/v1/locations
+POST http://transport.opendata.ch/v1/stations
 
 {
     name : "Zürich Hauptbahnhof"
@@ -329,13 +329,13 @@ POST http://transport.opendata.ch/v1/locations
 
 ==>
 201 Created
-Location: /locations/4444
+Location: /stations/4444
 
 </code></pre>                                   
   
                         <p>and again!</p>
                                                 <pre><code>
-POST http://transport.opendata.ch/v1/locations
+POST http://transport.opendata.ch/v1/stations
 
 {
     name : "Zürich Hauptbahnhof"
@@ -343,7 +343,7 @@ POST http://transport.opendata.ch/v1/locations
 
 ==>
 201 Created
-Location: /locations/4445
+Location: /stations/4445
 
 </code></pre>          
                     </div>
@@ -356,7 +356,7 @@ Location: /locations/4445
                         <p>PUT <strong>ist</strong> idempotent:</p>
                         
                         <pre><code>
-PUT http://transport.opendata.ch/v1/locations/4444
+PUT http://transport.opendata.ch/v1/stations/4444
 
 {
     name : "Zürich Hauptbahnhof"
@@ -364,7 +364,7 @@ PUT http://transport.opendata.ch/v1/locations/4444
 
 ==>
 201 Created
-Location: /locations/4444
+Location: /stations/4444
 
 </code></pre>                                   
   
@@ -376,7 +376,7 @@ Location: /locations/4444
                     <div>
                         <h2>POST & PUT</h2>                          
                         <pre><code>
-PUT http://transport.opendata.ch/v1/locations/4444
+PUT http://transport.opendata.ch/v1/stations/4444
 
 {
     name : "Zürich Hauptbahnhof"
@@ -384,13 +384,13 @@ PUT http://transport.opendata.ch/v1/locations/4444
 
 ==>
 201 Created
-Location: /locations/4444
+Location: /stations/4444
 
 </code></pre>                                   
   
                         <p>and again!</p>
                                                 <pre><code>
-PUT http://transport.opendata.ch/v1/locations/4444
+PUT http://transport.opendata.ch/v1/stations/4444
 
 {
     name : "Zürich Hauptbahnhof"
@@ -398,7 +398,7 @@ PUT http://transport.opendata.ch/v1/locations/4444
 
 ==>
 201 Created
-Location: /locations/4444
+Location: /stations/4444
 
 </code></pre>          
                     </div>
@@ -416,6 +416,7 @@ PUT     http://transport.opendata.ch/v1/locations/4444
 POST    http://transport.opendata.ch/v1/locations
 
 </code></pre>          
+                    <p><strong>Achtung:</strong> Natürlich liegt es an der Implementation des Servers, ob PUT & POST auch wirklich idempotent ist oder nicht!</p>
                     </div>
                 </section>
                 <section>
@@ -436,6 +437,8 @@ POST    http://transport.opendata.ch/v1/locations
 
 POST    /locations                  // DO
 POST    /locations/createLocation   // DON'T
+DELETE  /locations/1234             // DO
+DELETE  /deleteLocations/1234       // DON'T
 
 </code></pre>          
                     </div>
@@ -465,6 +468,14 @@ POST    /locations/createLocation   // DON'T
 }
 
 </code></pre>   
+        
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>Request Payloads</h2>
+                        
+                        <p><strong>GET</strong> und <strong>DELETE</strong> haben <strong>keinen</strong> Payload.</p>
         
                     </div>
                 </section>
