@@ -19,3 +19,7 @@ body.print-pdf section.zuehlke-bg-parallax {
     background-size: auto 100%;
     background-repeat: no-repeat;
 }
+
+.rest-table td{
+	border-bottom:0.1em solid #DEDEDE;
+}

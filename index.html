@@ -91,6 +91,20 @@
                     </ul>
                 </div>
             </section>
+            <section>
+	            <div>
+	                <h2>Forecast possible topics -> Dani</h2>
+	
+	                <ul>
+	                    <li>Expand</li>
+	                    <li>Patch</li>
+	                    <li>Versioning</li>
+	                    <li>Response types</li>
+	                    <li>Security</li>
+	                    <li>Error Handling</li>
+	                </ul>
+	            </div>
+            </section>
             <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
                 <div>
                     <h2>Basics topics -> Ben</h2>
@@ -99,11 +113,113 @@
                         <li>What is REST?</li>
                         <li>REST standard?</li>
                         <li>Why REST?</li>
-                        <li>Methods, CRUD</li>
                         <li>idempotency</li>
                         <li>basic examples (e.g. simple GETs)</li>
                     </ul>
                 </div>
+            </section>
+            <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
+            	<section>
+                <div>
+                   <h2>Definition</h2>
+                   <p>
+                       "Representational state transfer (REST) is an architectural style consisting of a coordinated set of architectural constraints applied to components, connectors, and data elements, within a distributed hypermedia system."
+                   </p>
+                </div>
+                </section>
+                <section>
+	                <h2>Definition for humans</h2>
+	                <p>
+	                    A concrete implementation of a REST Web service follows four basic design principles:
+	                </p>
+	                <p>
+	                <ul class="zuehlke-disc">
+	                    <li>Use HTTP methods explicitly.</li>
+	                    <li>Be stateless.</li>
+	                    <li>Expose directory structure-like URIs.</li>
+	                    <li>Transfer XML, JavaScript Object Notation (JSON), or both.</li>
+	                </ul>
+	                </p>
+                </section>
+                 <section>
+	                <h2>Standard?</h2>
+	                <p>
+	                    REST ist eigentlich ein Paradigma mit "Quasi Standard".
+	                </p>
+	                <p>
+	                	So ist ein Web-Dienst, der lediglich unveränderte Seiteninhalte nach dem Internetstandard HTTP anbietet, bereits REST-konform.
+	                </p>
+                </section>
+            </section>
+            <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
+             	<h2>Warum REST?</h2>
+	            <p>
+	            	<ul>
+	            		<li>State im Protokoll</li>
+	            		<li>Skalierbarkeit</li>
+	            		<li>Standard duch HTTP</li>
+	            		<li>Caching</li>
+	            	</ul>
+	            </p>
+            </section>
+            <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
+             	<h2>Idempotent</h2>
+             	<p>
+	            	<table class="rest-table" style="width: 100%;" cellspacing="1" cellpadding="1">
+						<tbody><tr>
+							<th>Methode</th>
+							<th style="text-align: center;">Sicher</th>
+							<th style="text-align: center;">Idempotent</th>
+						</tr>
+						<tr>
+							<td><span class="caps">GET</span></td>
+							<td style="text-align: center;">X</td>
+							<td style="text-align: center;">X</td>
+						</tr>
+						<tr>
+							<td><span class="caps">HEAD</span></td>
+							<td style="text-align: center;">X</td>
+							<td style="text-align: center;">X</td>
+						</tr>
+						<tr>
+							<td><span class="caps">PUT</span></td>
+							<td> </td>
+							<td style="text-align: center;">X</td>
+						</tr>
+						<tr>
+							<td><span class="caps">POST</span></td>
+							<td> </td>
+							<td> </td>
+						</tr>
+						<tr>
+							<td><span class="caps">PATCH</span></td>
+							<td> </td>
+							<td style="text-align: center;"></td>
+						</tr>
+						<tr>
+							<td><span class="caps">OPTIONS</span></td>
+							<td style="text-align: center;">X</td>
+							<td style="text-align: center;">X</td>
+						</tr>
+						<tr>
+							<td><span class="caps">DELETE</span></td>
+							<td> </td>
+							<td style="text-align: center;">X</td>
+						</tr>						
+					</tbody></table></p>
+					<p>Idempotent: Clients können den gleichen Call wiederholend ausführen, welche aber immer dasselbe Resultat generieren.</p>
+            </section>
+            <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
+            	<h2>Basic Examples</h2>
+            	<p class="fragment">
+            		<pre><code>
+GET http://transport.opendata.ch/v1/locations
+
+RETURN
+{
+    "stations": []
+}</code></pre>
+            	</p>
             </section>
             <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
                 <div>
