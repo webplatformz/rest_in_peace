@@ -221,6 +221,23 @@ RETURN
 }</code></pre>
             	</p>
             </section>
+            <section>
+                <h2>Live Example</h2>
+                <div ng-app="reveal" ng-controller="revealCtrl">
+                    <div> 
+                        <span><label>URL:</label>
+                        <input style="height: 1.1em; width: 80%; font-size: 0.8em;" ng-model="restURL"><span ng-click="getUrl()" >GO</span></span>
+                        <div>
+                            <span ng-click="helpURL()">&nbsp;&nbsp;&nbsp;Help&nbsp;&nbsp;&nbsp;</span>
+                        </div>
+                        <div>&nbsp;</div>
+                        <div>
+                            
+                            <textarea ng-model="restresult"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
                 <div>
                     <h2>Conventions topics -> Nick</h2>
@@ -357,6 +374,16 @@ Response:
                 src: 'plugin/markdown/markdown.js',
                 condition: function () {
                     return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'js/angular.js',
+                condition: function() {
+                    return true;
+                }
+            }, {
+                src: 'js/app.js',
+                condition: function() {
+                    return true;
                 }
             }, {
                 src: 'plugin/highlight/highlight.js',
