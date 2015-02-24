@@ -418,6 +418,56 @@ POST    http://transport.opendata.ch/v1/locations
 </code></pre>          
                     </div>
                 </section>
+                <section>
+                    <div>
+                        <h2>Naming of Resources</h2>
+                        <p>Verwende immer <strong>Nomen</strong>, um die Resourcen zu benennen.</p>
+                        <p>Verwende immer <strong>Plural</strong>, ausser es handelt sich <i>wirklich</i> um eine einzelne Resource und nicht eine Collection.</p>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>Naming of Resources</h2>
+                        <p>Wir exposen mit einer REST API die Resource <i>=Nomen</i></p>
+                        <p>und nicht die Operationen/RPC darauf <i>=Verben</i></p>
+                        <p>Die HTTP Methode sagt uns, <strong>was</strong> wir auf dieser Resource tun.</p>
+                       
+                        <pre><code>
+
+POST    /locations                  // DO
+POST    /locations/createLocation   // DON'T
+
+</code></pre>          
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>JSON</h2>
+                        
+                        <pre><code>                       
+
+{
+    employee : {
+        employeeId   : 111,
+        employeeName : "John"
+    }
+}
+
+</code></pre>  
+                        <p>skip the prefix!</p>
+                        <pre><code>
+
+{
+    employee : {
+        id      : 111,
+        name    : "John"
+    }
+}
+
+</code></pre>   
+        
+                    </div>
+                </section>
             </section>
             <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
                 <section>
