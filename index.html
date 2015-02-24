@@ -222,19 +222,133 @@ RETURN
             	</p>
             </section>
             <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
-                <div>
-                    <h2>Conventions topics -> Nick</h2>
-                    
-                    <ul>
-                        <li>Which method do I use?</li>
-                        <li>Naming of resources (singular/plural/nouns)</li>
-                        <li>Naming in JSON (skip the prefix)</li>
-                        <li>Request Payload dos and donts</li>
-                        <li>Security</li>
-                        <li>Error Handling</li>
-                        <li>Parallel calls?</li>
-                    </ul>
-                </div>
+                <section>
+                    <div>
+                        <h2>Conventions topics -> Nick</h2>
+
+                        <ul>
+                            <li>Which method do I use?</li>
+                            <li>Naming of resources (singular/plural/nouns)</li>
+                            <li>Naming in JSON (skip the prefix)</li>
+                            <li>Request Payload dos and donts</li>
+                            <li>Security</li>
+                            <li>Error Handling</li>
+                            <li>Parallel calls?</li>
+                        </ul>
+                    </div>
+                    </section>
+                <section>
+                    <div>
+                        <h2>Which method do I use?</h2>
+                        
+                        <p>Remember:</p>
+                        <p>POST GET PUT DELETE</p>
+                        <p> is not strictly </p>
+                        <p>CREATE READ UPDATE DELETE</p>
+                    </div>
+                
+                </section>
+                <section>
+                    <div>
+                        <h2>GET & DELETE</h2>
+                        <p>Entspricht dem READ und DELETE von CRUD.</p>
+                        <p><strong>Wichtig:</strong> Diese Methoden sollten keinen Body haben, die notwendigen Parameter befinden sich in der URL.</p>
+  
+                        <pre><code>
+GET     http://transport.opendata.ch/v1/locations
+DELETE  http://transport.opendata.ch/v1/locations/1234
+
+</code></pre>             
+                    </div>
+                
+                </section>
+                <section>
+                    <div>
+                        <h2>POST & PUT</h2>
+                        <p>Beide Methoden können für CREATE und UPDATE verwendet werden.</p>
+  
+                        <pre><code>
+POST http://transport.opendata.ch/v1/locations
+
+{
+    name : "Zürich Hauptbahnhof"
+}
+
+PUT http://transport.opendata.ch/v1/locations/8765
+
+{
+    name : "Zürich Hauptbahnhof"
+}
+
+</code></pre>             
+                        <p>WTF?</p>
+                    </div>
+                
+                </section>
+                <section>
+                    <div>
+                        <h2>POST & PUT</h2>
+                        <p>Der Schlüssel liegt in der <strong>Idempotenz</strong></p>
+  
+                        <p>"Send and send and send my friend, it makes no difference in the end."</p>
+                        <p><small>- James Beninger</small></p>
+                    </div>
+                
+                </section>
+                <section>
+                    <div>
+                        <h2>POST & PUT</h2>
+                        <p>POST ist <strong>nicht</strong> idempotent:</p>
+                        
+                        <pre><code>
+POST http://transport.opendata.ch/v1/locations
+
+{
+    name : "Zürich Hauptbahnhof"
+}
+
+==>
+201 Created
+Location: /locations/4444
+
+</code></pre>                                   
+  
+                        <p>Was passiert, wenn ich diesen Request mehrmals ausführe?</p>
+                    </div>
+                
+                </section>
+                <section>
+                    <div>
+                        <h2>POST & PUT</h2>                          
+                        <pre><code>
+POST http://transport.opendata.ch/v1/locations
+
+{
+    name : "Zürich Hauptbahnhof"
+}
+
+==>
+201 Created
+Location: /locations/4444
+
+</code></pre>                                   
+  
+                        <p>and again!</p>
+                                                <pre><code>
+POST http://transport.opendata.ch/v1/locations
+
+{
+    name : "Zürich Hauptbahnhof"
+}
+
+==>
+201 Created
+Location: /locations/4445
+
+</code></pre>          
+                    </div>
+                    <p>Wir haben soeben dieselbe Location zwei mal erstellt.</p>
+                </section>
             </section>
             <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
                 <section>
