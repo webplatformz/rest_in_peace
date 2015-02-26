@@ -314,7 +314,56 @@ Response:
   </code></pre>        
                 </section>
                 <section>
-                    <h2>Versioning</h2>
+                    <h2>Versionierung</h2>
+                    <table class="rest-table" style="width: 100%;" cellspacing="1" cellpadding="1">
+                                
+                        <tbody>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>Beispiel</th>
+                            </tr>
+                            <tr>
+                                <td>Versionierung in der URL</td>
+                                <td>.../v1/locations</td>
+                            </tr> 
+                            <tr>
+                                <td>Versionierung als Parameter</td>
+                                <td>.../locations?v=1</td>
+                            </tr>
+                            <tr>
+                                <td>Versionierung als Content Type</td>
+                                <td>
+                                   Accept: application/vnd.opendata.v1+json
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Versionierung als Custom Header</td>
+                                <td>
+                                    api-version: 1
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                        Versionierung in der URL
+                        <pre><code>
+http://transport.opendata.ch/v1/locations
+                        </code></pre>
+                </section>    
+                <section>
+                    <h2>Versionierung</h2>
+                        Versionierung als URL Parameter
+                        <pre><code>
+http://transport.opendata.ch/locations?v=1
+                        </code></pre>
+                </section>
+                <section>
+                    <h2>Versionierung</h2>
+                        Versionierung durch Accept Header
+                        <pre><code>
+application/vnd.github[.version].param[+json]
+application/vnd.github.v3+json
+                        </code></pre>
+                    *vnd steht für den Vendor Tree nach RFC 4288
                 </section>
                 <section>
                     <h2>Response Types</h2>
