@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>.: Zuehlke Demo :.</title>
+    <title>REST in peace</title>
 
     <meta name="description" content="A DEMO Presentation with a zuehlke Template and the reveal.js presentation framework">
     <meta name="author" content="Type your name here">
@@ -499,7 +499,14 @@ DELETE  /deleteLocations/1234       // DON'T
                         <h2>Request Payloads</h2>
                         
                         <p><strong>GET</strong> und <strong>DELETE</strong> haben <strong>keinen</strong> Payload.</p>
-        
+
+                        <p>Einschränkungen für den Request (z.B. query-parameters) gehören in die URL-Parameter.</p>
+
+                        <pre><code>
+GET /locations?canton=Aargau&region=Baden
+
+                        </code></pre>
+
                     </div>
                 </section>
             </section>
