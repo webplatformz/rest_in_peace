@@ -500,7 +500,7 @@ DELETE  /deleteLocations/1234       // DON'T
                         
                         <p><strong>GET</strong> und <strong>DELETE</strong> haben <strong>keinen</strong> Payload.</p>
 
-                        <p>Einschränkungen für den Request (z.B. search-parameters) gehören in die URL-Parameter.</p>
+                        <p>Einschränkungen für die Antwort (z.B. search-parameters) gehören in die URL-Parameter.</p>
 
                         <pre><code>
 GET /locations?canton=Aargau&county=Baden
@@ -558,6 +558,8 @@ GET /locations?canton=Aargau&county=Baden
                         <li>PATCH must patch atomically</li>
                         <li>Not idempotent (Altough Can be implemented as so)</li>
                     </ul>
+
+                    <p>Patch wird noch nicht so ganz unterstützt, under development</p>
                 </section> 
                 <section>
                     <h2>PATCH</h2>
