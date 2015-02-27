@@ -500,10 +500,10 @@ DELETE  /deleteLocations/1234       // DON'T
                         
                         <p><strong>GET</strong> und <strong>DELETE</strong> haben <strong>keinen</strong> Payload.</p>
 
-                        <p>Einschränkungen für den Request (z.B. query-parameters) gehören in die URL-Parameter.</p>
+                        <p>Einschränkungen für den Request (z.B. search-parameters) gehören in die URL-Parameter.</p>
 
                         <pre><code>
-GET /locations?canton=Aargau&region=Baden
+GET /locations?canton=Aargau&county=Baden
 
                         </code></pre>
 
@@ -561,27 +561,30 @@ GET /locations?canton=Aargau&region=Baden
                 </section> 
                 <section>
                     <h2>PATCH</h2>
-                    <code> GET ./rest/employees/123</code><br/>
                     <pre><code>
-Response:
+GET /employees/123
+
+==>
 { 
     [...]
     salary: 5800
 }
                      </code></pre>
                     
-                    <code> PATCH ./rest/employees/123</code><br/>
                     <pre><code>
-Body:
+PATCH ./rest/employees/123
+
 {
     salary : 6000 
 }
                     </code></pre>
                 
-                                    <code> GET ./rest/employees/123</code><br/>
+                                    <code> </code><br/>
                     <pre><code>
-Response:
-{ 
+GET ./rest/employees/123
+
+==>
+{
     [...]
     salary: 6000
 }
