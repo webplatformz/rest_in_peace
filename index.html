@@ -529,24 +529,32 @@ GET /locations?canton=Aargau&county=Baden
                     <h2>Expand</h2>
                     <p>Department is not expanded</p>
                     <pre><code>
+GET /employees/123
+
+==>
 {
+    id: 123,
     name: "John",
     prename : "Doe",
-    department : 1234
+    department : "/departments/1234"
 }
                     </code></pre>
+   
+                </section>
+                <section>
+                   <h2>Expand</h2>
+
                     <p>Department is expanded</p>
                     <pre><code>
+GET /departments/1234
+
+==>
 { 
-    name: "John",
-    prename : "Doe",
-    department : { 
         id: 1234,
         name: "MYA",
         street: "Hardturmstrasse 4",
         zipCode: 8005,
         city: "Zürich"
-    }
 }
                     </code></pre>
                 </section>
@@ -563,8 +571,9 @@ GET /locations?canton=Aargau&county=Baden
                 </section> 
                 <section>
                     <h2>PATCH</h2>
+                    <p>Before patching</p>
                     <pre><code>
-GET /employees/123
+GET ./rest/employees/123
 
 ==>
 { 
@@ -572,14 +581,22 @@ GET /employees/123
     salary: 5800
 }
                      </code></pre>
-                    
+                    </section><section>
+                    <h2>PATCH</h2>
+                    <p>now Patching...</p>
                     <pre><code>
 PATCH ./rest/employees/123
-
 {
     salary : 6000 
 }
+
+==>
+200 OK
                     </code></pre>
+                
+                </section><section>
+                <h2>PATH</h2>
+                <p>After Patching</p>
                 
                                     <code> </code><br/>
                     <pre><code>
@@ -601,26 +618,27 @@ GET ./rest/employees/123
                                 <th>&nbsp;</th>
                                 <th>Beispiel</th>
                             </tr>
-                            <tr>
+                            <tr class="fragment">
                                 <td>Versionierung in der URL</td>
                                 <td>.../v1/locations</td>
                             </tr> 
-                            <tr>
+                            <tr class="fragment">
                                 <td>Versionierung als Parameter</td>
                                 <td>.../locations?v=1</td>
                             </tr>
-                            <tr>
+                            <tr class="fragment">
                                 <td>Versionierung als Content Type</td>
                                 <td>
                                    Accept: application/vnd.opendata.v1+json
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="fragment">
                                 <td>Versionierung als Custom Header</td>
                                 <td>
                                     api-version: 1
                                 </td>
                             </tr>
+                                </fragment>
                         </tbody>
                     </table>
                         Versionierung in der URL
