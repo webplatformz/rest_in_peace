@@ -80,9 +80,9 @@
                         <li>
                             Hands-On
                             <ul>
-                                <li>Architektur 10'</li>
+                                <li>Design your API 10'</li>
                                 <li>How to register; Postman; example URL 2'</li>
-                                <li>Case to Check 20'</li>
+                                <li>Implementation 20'</li>
                                 <li>Review; REST@SAM (Guidelines and Tooling) 10'</li>
                             </ul>
                         </li>
@@ -163,7 +163,8 @@
 	            </p>
             </section>
             <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
-             	<h2>Idempotent</h2>
+             	<h2>Methoden</h2>
+                    <br />
 	            	<table class="rest-table" style="width: 100%;" cellspacing="1" cellpadding="1">
 						<tbody><tr>
 							<th>Methode</th>
@@ -206,15 +207,14 @@
 							<td style="text-align: center;">X</td>
 						</tr>						
 					</tbody></table>
-					<p>Idempotent: Clients können den gleichen Call wiederholend ausführen, welche aber immer dasselbe Resultat generieren.</p>
             </section>
             <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
-            	<h2>Basic Examples</h2>
+            	<h2>Basic Example</h2>
             	<p class="fragment">
             		<pre><code>
 GET http://transport.opendata.ch/v1/locations
 
-RETURN
+==>
 {
     "stations": []
 }</code></pre>
@@ -240,23 +240,20 @@ RETURN
                         <div class="content-json" style="float:right; width: 45%; text-align:left;">
                             <pre ng-bind-html="restresult"></pre>
                         </div>
-                         
+
                     </div>
                 </div>
             </section>
             <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
                 <section>
                     <div>
-                        <h2>Conventions topics -> Nick</h2>
+                        <h2>Conventions</h2>
 
                         <ul>
                             <li>Which method do I use?</li>
-                            <li>Naming of resources (singular/plural/nouns)</li>
-                            <li>Naming in JSON (skip the prefix)</li>
-                            <li>Request Payload dos and donts</li>
-                            <li>Security</li>
-                            <li>Error Handling</li>
-                            <li>Parallel calls?</li>
+                            <li>Naming of resources</li>
+                            <li>Naming in JSON</li>
+                            <li>Request Payload dos and don'ts</li>
                         </ul>
                     </div>
                     </section>
@@ -264,10 +261,9 @@ RETURN
                     <div>
                         <h2>Which method do I use?</h2>
                         
-                        <p>Remember:</p>
                         <p>POST GET PUT DELETE</p>
                         <p> is not strictly </p>
-                        <p>CREATE READ UPDATE DELETE</p>
+                        <p><strong>CRUD</strong></p>
                     </div>
                 
                 </section>
@@ -275,8 +271,7 @@ RETURN
                     <div>
                         <h2>GET & DELETE</h2>
                         <p>Entspricht dem READ und DELETE von CRUD.</p>
-                        <p><strong>Wichtig:</strong> Diese Methoden sollten keinen Body haben, die notwendigen Parameter befinden sich in der URL.</p>
-  
+
                         <pre><code>
 GET     http://transport.opendata.ch/v1/stations
 DELETE  http://transport.opendata.ch/v1/stations/1234
@@ -433,7 +428,7 @@ Location: /stations/4444
                         <h2>POST & PUT</h2>                          
                     
                         <p>Bei <strong>POST</strong> lassen wir den Server entscheiden, unter welcher Location die Resource erstellt wird.</p>
-                        <p>Bei <strong>PUT</strong> sagen wir dem Server, unter welcher Location die Resource erstellt werden soll.</p>
+                        <p>Bei <strong>PUT</strong> sagen wir dem Server, unter welcher Location die Resource erstellt/überschrieben werden soll.</p>
                         <pre><code>
 PUT     http://transport.opendata.ch/v1/locations/4444
 POST    http://transport.opendata.ch/v1/locations
@@ -453,15 +448,18 @@ POST    http://transport.opendata.ch/v1/locations
                     <div>
                         <h2>Naming of Resources</h2>
                         <p>Wir exposen mit einer REST API die Resource <i>=Nomen</i></p>
-                        <p>und nicht die Operationen/RPC darauf <i>=Verben</i></p>
+                        <p>und nicht die Operationen darauf <i>=Verben</i></p>
                         <p>Die HTTP Methode sagt uns, <strong>was</strong> wir auf dieser Resource tun.</p>
                        
                         <pre><code>
 
 POST    /locations                  // DO
+
 POST    /locations/createLocation   // DON'T
+
 DELETE  /locations/1234             // DO
-DELETE  /deleteLocations/1234       // DON'T
+
+DELETE  /deleteLocation/1234        // DON'T
 
 </code></pre>          
                     </div>
@@ -470,7 +468,8 @@ DELETE  /deleteLocations/1234       // DON'T
                     <div>
                         <h2>JSON</h2>
                         
-                        <pre><code>                       
+                        <pre><code>
+// nope
 
 {
     employee : {
