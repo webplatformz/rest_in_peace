@@ -10,10 +10,10 @@ angular.module('reveal', ['ngSanitize'])
        $scope.restURL = "http://transport.opendata.ch/v1/locations?query=Basel"; 
     }
     $scope.helpURL1 = function(){
-       $scope.restURL = "http://transport.opendata.ch/v1/locations?query=Basel"; 
+       $scope.restURL = "http://transport.opendata.ch/v1/connections?from=oerlikon&to=wallisellen&limit=2"; 
     }
     $scope.helpURL2 = function(){
-       $scope.restURL = "http://transport.opendata.ch/v1/locations?query=Basel"; 
+       $scope.restURL = "http://transport.opendata.ch/v1/connections?from=oerlikon&to=wallisellen&time=17:30&limit=5&fields[]=connections/duration";//&fields[]=stationboard/stop";  
     }
     
     $scope.getUrl = function(ev){
