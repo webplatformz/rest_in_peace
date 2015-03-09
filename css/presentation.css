@@ -30,3 +30,11 @@ body.print-pdf section.zuehlke-bg-parallax {
 .rest-table td{
 	border-bottom:0.1em solid #DEDEDE;
 }
+
+.alert.sam-tag {
+    position:absolute; 
+    top:0;
+    right:0;
+    font-size: 0.7em;
+    padding: 2px 10px;
+}
