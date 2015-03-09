@@ -521,6 +521,122 @@ GET /locations?canton=Aargau&county=Baden
                 <section>
                     <div>
                         <h2>Hands-On</h2>
+                        <p>Design your API</p>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>REST @ SAM</h2>
+                        <p>JAX-RS with Jersey</p>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>Serializing and Deserializing</h2>
+                        <p>Automatisches Serialisieren und Deserialisieren:</p>
+                        <ul>
+                            <li>JSON mit Jackson</li>
+                            <li>XML mit JAXB</li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>Serializing and Deserializing</h2>
+                        <p>Beispiel</p>
+                        <pre><code>
+@GET
+public Employee[] getEmployees() { ... }
+
+==>
+[{ name : "John Wayne" }, ..., ]
+
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>Path Params</h2>
+                        <p>Client: </p>
+                        <pre><code>
+GET /employees/1234
+
+                        </code></pre>
+                        <p>Server:</p>
+                        <pre><code>
+@GET
+@Path(/{employeeId})
+public Employee getEmployee(@PathParam("employeeId") String employeeId) { ... }
+
+==>
+{ id : "1234", name : "John Wayne" }
+
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>Query Params</h2>
+                        <p>Client: </p>
+                        <pre><code>
+GET /employees?name=John
+
+                        </code></pre>
+                        <p>Server:</p>
+                        <pre><code>
+@GET
+public Employee getEmployees(@QueryParam("name" String name) { ... }
+
+==>
+{ id : "1234", name : "John Wayne" }
+
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>Request Payload</h2>
+                        <p>Client: </p>
+<pre><code>
+POST /employees
+{
+    name : "Chuck Norris"
+}
+
+</code></pre>
+                        <p>Server:</p>
+<pre><code>
+@POST
+public void createEmployee(Employee employee) { ... }
+
+==>
+204 No Content
+
+</code></pre>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>Hands On!</h2>
+                        <p>Cheatsheet</p>
+<pre><code>
+
+@GET
+public Employee[] getEmployees() { ... }
+
+@GET
+@Path(/{employeeId})
+public Employee getEmployee(@PathParam("employeeId")
+    String employeeId) { ... }
+
+@GET
+public Employee getEmployees(@QueryParam("name" String name) { ... }
+
+@POST
+public void createEmployee(Employee employee) { ... }
+
+</code></pre>
+
                     </div>
                 </section>
             </section>
@@ -550,7 +666,7 @@ GET /employees/123
 {
     id: 123,
     name: "John",
-    prename : "Doe",
+    surname : "Doe",
     departmentId : 1234
 }
                     </code></pre>
@@ -565,7 +681,7 @@ GET /employees/123?expand=department
 {
     id: 123,
     name: "John",
-    prename : "Doe",
+    surname : "Doe",
     department : {
         id: 1234,
         name: "MYA",
