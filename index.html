@@ -158,12 +158,14 @@
             <section data-transition="linear" >
              	<h2>Methoden</h2>
                     <br />
-	            	<table class="rest-table" style="width: 100%;" cellspacing="1" cellpadding="1">
-						<tbody><tr>
+	            	<table class="table table-striped" style="width: 100%;">
+                        <thead><tr>
 							<th>Methode</th>
 							<th style="text-align: center;">Sicher</th>
 							<th style="text-align: center;">Idempotent</th>
 						</tr>
+                        </thead>
+						<tbody>
 						<tr>
 							<td><span class="caps">GET</span></td>
 							<td style="text-align: center;">X</td>
@@ -220,12 +222,18 @@ GET http://transport.opendata.ch/v1/locations
                 <div ng-app="reveal" ng-controller="revealCtrl">
                     <div> 
                         <span><label>URL:</label>
-                            <textarea style="height: 3em; width: 70%; font-size: 0.6em;" cols="60" rows="3" ng-model="restURL"></textarea>
-                            <span ng-click="getUrl()" >GET</span></span>
+                            <textarea style="height: 5em; width: 70%; font-size: 0.6em;" cols="60" rows="3" ng-model="restURL"></textarea>
+                            <div class="btn-group" role="group" aria-label="..." style="margin-top:10px;">
+                              <button ng-click="getUrl()"  type="button" class="btn btn-default">GET</button>
+                            </div>
+                        </span>
                         <div>
-                            <span ng-click="helpURL()">Examples &nbsp;1&nbsp;</span>
-                            <span ng-click="helpURL1()">&nbsp;2&nbsp;</span>
-                            <span ng-click="helpURL2()">&nbsp;3&nbsp;</span>
+                            <h7>Examples&nbsp;</h7>
+                            <div class="btn-group" role="group" aria-label="..." style="margin-top:10px;">
+                              <button ng-click="helpURL()" type="button" class="btn btn-default">&nbsp;1&nbsp;</button>
+                              <button ng-click="helpURL1()" type="button" class="btn btn-default">&nbsp;2&nbsp;</button>
+                              <button ng-click="helpURL2()" type="button" class="btn btn-default">&nbsp;3&nbsp;</button>
+                            </div>
                         </div>
                         
                         
