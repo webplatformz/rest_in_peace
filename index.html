@@ -253,6 +253,17 @@ DELETE  /connections?from=oerlikon&to=wallisellen&limit=2
 
 </code></pre>
             </section>
+<section data-transition="linear" >
+             	<h2>Weitere Beispiele</h2> 
+    <pre><code>
+GET  https://api.github.com/repos/bmillo/recycle_calendar
+
+GET  http://isvat.appspot.com/DE/197493877/
+
+GET  api.openweathermap.org/data/2.5/weather?q=Zurich,ch
+
+</code></pre>
+            </section>
             <section data-transition="linear" >
                 <section>
                     <div>
@@ -768,7 +779,7 @@ OPTIONS /*  // * Testet den ganzen Server
 200 OK  
   </code></pre>   
 <pre class="fragment"><code>
-OPTIONS /employees  // * Testet die employees Ressource
+OPTIONS /employees  // Testet die employees Ressource
 ==>
 200 OK  
 Allow: HEAD,GET,PUT,DELETE,OPTIONS
@@ -922,6 +933,9 @@ GET /employees/123
 }
 </code></pre>
                 </section>
+            </section>
+            <section>
+                <h2>QA &amp; Feedback</h2>
             </section>
         </div>
     </div>
