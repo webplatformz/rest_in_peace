@@ -75,39 +75,28 @@
                             Basics 10'
                         </li>
                         <li>
-                            Conventions (Examples) 20'
+                            Conventions 20'
                         </li>
                         <li>
                             Hands-On
                             <ul>
                                 <li>Design your API 10'</li>
-                                <li>How to register; Postman; example URL 2'</li>
+                                <li>Review 5'</li>
+                                <li>Pause 10'</li>
+                                <li>REST@SAM 5'</li>
+                                <li>Postman 5'</li>
                                 <li>Implementation 20'</li>
-                                <li>Review; REST@SAM (Guidelines and Tooling) 10'</li>
+                                <li>Review 15'</li>
                             </ul>
                         </li>
-                        <li>Deep Dive with forecast 15'</li>
-                        <li>QA Session 15'</li>
+                        <li>Deep Dive with forecast 10'</li>
+                        <li>QA Session 10'</li>
                     </ul>
                 </div>
             </section>
-            <section>
-	            <div>
-	                <h2>Forecast possible topics -> Dani</h2>
-	
-	                <ul>
-	                    <li>Expand</li>
-	                    <li>Patch</li>
-	                    <li>Versioning</li>
-	                    <li>Response types</li>
-	                    <li>Security</li>
-	                    <li>Error Handling</li>
-	                </ul>
-	            </div>
-            </section>
             <section data-transition="linear" >
                 <div>
-                    <h2>Basics topics -> Ben</h2>
+                    <h2>Basics topics</h2>
                     
                     <ul>
                         <li>What is REST?</li>
@@ -255,6 +244,13 @@ GET http://transport.opendata.ch/v1/locations
                         <li>Paging startet bei "1" und nicht bei "0"</li>                        
 	            	</ul>
 	            </p>
+    
+    <pre><code>
+GET     /connections?from=oerlikon&to=wallisellen&limit=2
+
+DELETE  /connections?from=oerlikon&to=wallisellen&limit=2
+
+</code></pre>
             </section>
             <section data-transition="linear" >
                 <section>
@@ -433,7 +429,6 @@ Location: /stations/4444
 </code></pre>          
                     </div>
                     <p>Wir haben die erste Location einfach überschrieben.</p>
-                    <p><i>"Send and send and send my friend, it makes no difference in the end."</i></p>
                 </section>
                 <section>
                     <div>
@@ -524,7 +519,14 @@ GET /locations?canton=Aargau&county=Baden
             <section data-transition="linear" >
                 <section>
                     <div>
-                        <h2>Forecast possible topics -> Dani</h2>
+                        <h2>Hands-On</h2>
+                    </div>
+                </section>
+            </section>
+            <section data-transition="linear" >
+                <section>
+                    <div>
+                        <h2>Forecast possible topics</h2>
 
                         <ul>
                             <li>Expand</li>
@@ -547,7 +549,7 @@ GET /employees/123
     id: 123,
     name: "John",
     prename : "Doe",
-    department : "/departments/1234"
+    departmentId : 1234
 }
                     </code></pre>
    
@@ -557,15 +559,20 @@ GET /employees/123
 
                     <p>Department is expanded</p>
                     <pre><code>
-GET /departments/1234
+GET /employees/123?expand=department
 
 ==>
-{ 
+{
+    id: 123,
+    name: "John",
+    prename : "Doe",
+    department : {
         id: 1234,
         name: "MYA",
         street: "Hardturmstrasse 4",
         zipCode: 8005,
         city: "Zürich"
+    }
 }
                     </code></pre>
                 </section>
