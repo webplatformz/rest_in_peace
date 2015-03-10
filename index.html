@@ -393,8 +393,8 @@ Location: /stations/4444
 
 </code></pre>
 
-                        <p>and again!</p>
-                        <pre><code>
+                        <p class="fragment">and again!</p>
+                        <pre class="fragment"><code>
 POST http://transport.opendata.ch/v1/stations
 
 {
@@ -407,7 +407,7 @@ Location: /stations/4445
 
 </code></pre>
                     </div>
-                    <p>Wir haben soeben dieselbe Location zwei mal erstellt.</p>
+                    <p class="fragment">Wir haben soeben dieselbe Location zwei mal erstellt.</p>
                 </section>
 
                 <section>
@@ -448,8 +448,8 @@ Location: /stations/4444
 
 </code></pre>
 
-                        <p>and again!</p>
-                        <pre><code>
+                        <p class="fragment">and again!</p>
+                        <pre class="fragment"><code>
 PUT http://transport.opendata.ch/v1/stations/4444
 
 {
@@ -462,27 +462,57 @@ Location: /stations/4444
 
 </code></pre>
                     </div>
-                    <p>Wir haben die erste Location einfach überschrieben.</p>
+                    <p class="fragment">Wir haben die erste Location einfach überschrieben.</p>
                 </section>
                 <section>
                     <div>
                         <h2>POST & PUT</h2>
 
                         <p>Bei <strong>POST</strong> lassen wir den Server entscheiden, unter welcher Location die Resource erstellt wird.</p>
-                        <p>Bei <strong>PUT</strong> sagen wir dem Server, unter welcher Location die Resource erstellt/überschrieben werden soll.</p>
-                        <pre><code>
+                        <p class="fragment">Bei <strong>PUT</strong> sagen wir dem Server, unter welcher Location die Resource erstellt/überschrieben werden soll.</p>
+                        <pre class="fragment"><code>
 PUT     http://transport.opendata.ch/v1/locations/4444
 POST    http://transport.opendata.ch/v1/locations
 
 </code></pre>
-                        <p><strong>Achtung:</strong> Natürlich liegt es an der Implementation des Servers, ob PUT & POST auch wirklich idempotent ist oder nicht!</p>
+                        <p class="fragment"><strong>Achtung:</strong> Natürlich liegt es an der Implementation des Servers, ob PUT & POST auch wirklich idempotent ist oder nicht!</p>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>POST</h2>
+
+                        <p>POST darf verwendet werden, wenn die Query Parameter eine gefährlich grosse Länge annehmen könnten. Zum Beispiel, wenn ich n Rufnummern einem Standort zuweisen möchte:</p>
+                        
+                        <pre class="fragment"><code>
+
+PUT    /numbers/1,2,3,4,5,6,7,...,756879895 
+
+{
+    "locationId" : 1337
+}
+
+</code></pre>
+                        
+                        <pre class="fragment"><code>
+
+POST    /numbers/locationAssignment
+
+{
+    "numberIds" : [ 1,2,3,... ],
+    "locationId" : 1337
+}
+
+</code></pre>
+                        
+                        
                     </div>
                 </section>
                 <section>
                     <div>
                         <h2>Benennung der Ressourcen</h2>
                         <p>Verwende immer <strong>Nomen</strong>, um die Ressourcen zu benennen.</p>
-                        <p>Verwende immer <strong>Plural</strong>, ausser es handelt sich <i>wirklich</i> um eine einzelne Ressource und nicht eine Collection.</p>
+                        <p class="fragment">Verwende immer <strong>Plural</strong>, ausser es handelt sich <i>wirklich</i> um eine einzelne Ressource und nicht eine Collection.</p>
                     </div>
                 </section>
                 <section>
@@ -490,11 +520,11 @@ POST    http://transport.opendata.ch/v1/locations
                         <h2>Benennung der Ressourcen</h2>
                         <p>Wir exposen mit einer REST API die Ressource <i>=Nomen</i>
                         </p>
-                        <p>und nicht die Operationen darauf <i>=Verben</i>
+                        <p class="fragment">und nicht die Operationen darauf <i>=Verben</i>
                         </p>
-                        <p>Die HTTP Methode sagt uns, <strong>was</strong> wir auf dieser Ressource tun.</p>
+                        <p class="fragment">Die HTTP Methode sagt uns, <strong>was</strong> wir auf dieser Ressource tun.</p>
 
-                        <pre><code>
+                        <pre class="fragment"><code>
 
 POST    /locations                  // DO
 
@@ -665,7 +695,7 @@ public void createEmployee(Employee employee) { ... }
                     <div>
                         <h2>Postman</h2>
 
-                        <p><a href="chrome-extension://fdmmgilgnpjigdojojpjoooidkmcomcm/index.html">Live Demo</a></p>
+                        <p><a href="chrome-extension://fdmmgilgnpjigdojojpjoooidkmcomcm/index.html" target="_blank">Live Demo</a></p>
                     </div>
                 </section>
                 <section>
@@ -683,7 +713,8 @@ public Employee getEmployee(@PathParam("employeeId")
     String employeeId) { ... }
 
 @GET
-public Employee getEmployees(@QueryParam("name" String name) { ... }
+public Employee getEmployees(@QueryParam("name") 
+    String name) { ... }
 
 @POST
 public void createEmployee(Employee employee) { ... }
@@ -772,6 +803,7 @@ GET /employees/123
                 </section>
                 <section>
                     <h2>PATCH</h2>
+                    <p>Nach RFC 6902</p>
                     <pre><code>
 PATCH /employees/123
 Content-Type: application/json-patch+json
