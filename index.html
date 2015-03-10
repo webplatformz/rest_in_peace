@@ -480,6 +480,36 @@ POST    http://transport.opendata.ch/v1/locations
                 </section>
                 <section>
                     <div>
+                        <h2>POST</h2>
+
+                        <p>POST darf verwendet werden, wenn die Query Parameter eine gefährlich grosse Länge annehmen könnten. Zum Beispiel, wenn ich n Rufnummern einem Standort zuweisen möchte:</p>
+                        
+                        <pre class="fragment"><code>
+
+PUT    /numbers/1,2,3,4,5,6,7,...,756879895 
+
+{
+    "locationId" : 1337
+}
+
+</code></pre>
+                        
+                        <pre class="fragment"><code>
+
+POST    /numbers/locationAssignment
+
+{
+    "numberIds" : [ 1,2,3,... ],
+    "locationId" : 1337
+}
+
+</code></pre>
+                        
+                        
+                    </div>
+                </section>
+                <section>
+                    <div>
                         <h2>Benennung der Ressourcen</h2>
                         <p>Verwende immer <strong>Nomen</strong>, um die Ressourcen zu benennen.</p>
                         <p class="fragment">Verwende immer <strong>Plural</strong>, ausser es handelt sich <i>wirklich</i> um eine einzelne Ressource und nicht eine Collection.</p>
