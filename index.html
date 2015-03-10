@@ -742,7 +742,6 @@ public void createEmployee(Employee employee) { ... }
                 </section>
                 <section>
                     <h2>Expand</h2>
-                    <p>Department is not expanded</p>
                     <pre><code>
 GET /employees/123
 
@@ -788,6 +787,7 @@ GET /employees/123?expand=department
                 </section>
                 <section>
                     <h2>PATCH</h2>
+                    <p>Initialer Request</p>
                     <pre><code>
 GET /employees/123
 
@@ -829,7 +829,7 @@ GET /employees/123
     name: "Joe",
     prename : "Doe",
     departmentId : 1234,
-    salary : 800
+    salary : 6000
 }
   </code></pre>
                 </section>
@@ -842,6 +842,7 @@ HEAD /employees/123
 
 ==>
 200 OK
+Content-Length: 2885
   </code></pre>
                 </section>
                 <section>
@@ -849,25 +850,18 @@ HEAD /employees/123
                     <p>Die OPTIONS Methode erlaubt dem Client die Optionen und Anforderungen des Servers bzw. einer Ressource zu erhalten. </p>
 
                     <pre class="fragment"><code>
-OPTIONS /*  // * Testet den ganzen Server
-==>
-200 OK  
-  </code></pre>
-                    <pre class="fragment"><code>
-OPTIONS /employees  // Testet die employees Ressource
+OPTIONS /employees
 ==>
 200 OK  
 Allow: HEAD,GET,PUT,DELETE,OPTIONS
   </code></pre>
-                <p>ABER: OPTIONS ist nur bei wenigen Rest-API's implementiert.</p>
+                <p class="fragment">ABER: OPTIONS ist nur bei wenigen Rest-API's implementiert.</p>
                 </section>
                 <section>
                     <h2>Versionierung</h2>
-                    <div class="alert alert-warning sam-tag" role="alert"><strong>SAM:</strong> noch nicht relevant!</div>
                     <img src="images/versioning.png"></img>
                 </section>
                 <section>
-                    <div class="alert alert-warning sam-tag" role="alert"><strong>SAM:</strong> zurzeit nicht relevant!</div>
                     <h2>Versionierung</h2>
                     <p>Als Teil vor der Ressource</p>
                     <pre><code>
@@ -879,14 +873,13 @@ GET http://transport.opendata.ch/locations?v=1
                         </code></pre>
                 </section>
                 <section>
-                    <div class="alert alert-warning sam-tag" role="alert"><strong>SAM:</strong> zurzeit nicht relevant!</div>
                     <h2>Versionierung</h2>
                     <p>Versionierung durch Accept Header</p>
                     <pre><code>
 GET http://transport.opendata.ch/locations
 Accept: application/vnd.opendata.v1+json
                         </code></pre>
-                    <p>Versionierung</p>
+                    <p>Versionierung durch Custom Header</p>
                     <pre><code>
 GET http://transport.opendata.ch/locations
 api-version: 1
@@ -940,6 +933,21 @@ GET /employees/999999999
 </code></pre>
                 </section>
                 <section>
+                    <h2>405 Method Not Allowed</h2>
+                    <p>Das Bearbeiten der Anfrage wird vom Server für diese Ressource nicht bereitgestellt. z.B. PUT auf einer Readonly Ressource</p>
+                    <pre><code>
+PUT /ReadOnlyRessource/1
+
+{
+    title : "RESTful Web Services Cookbook"
+    pages : 314
+}
+
+==>
+405 Method Not Allowed
+</code></pre>
+                </section>
+                <section>
                     <h2>422 Unprocessable Entity</h2>
                     <p>Die geschickten Daten sind syntaktisch korrekt, werden jedoch wegen semantischer Fehler abgelehnt</p>
                     <pre><code>
@@ -952,6 +960,11 @@ POST /employees
 ==>
 422 Unprocessable Entity
 </code></pre>
+                </section> 
+                <section>
+                    <h2>418 I'm a teapot</h2>
+                    <p>Ein Teekrug erhält eine Anweisung zum Kaffee brühen.</p>
+                    <p>Aprilscherz der IETF aus dem Jahre 1998</p>
                 </section>
                 <section>
                     <h2>500 Internal Server Error</h2>
@@ -967,33 +980,18 @@ POST /employees
 500 Internal Server Error
 </code></pre>
                 </section>
-                <section>
-                    <h2>501 Not Implemented</h2>
-                    <p>Das Bearbeiten der Anfrage wird vom Server nicht bereitgestellt. z.B. unbekannte oder nicht unterstütztde HTTP-Methode</p>
-                    <pre><code>
-POST /ReadOnlyRessource
 
-{
-    title : "RESTful Web Services Cookbook"
-    pages : 314
-}
-
-==>
-501 Not Implemented
-</code></pre>
-                </section>
                 <section>
-                    <div class="alert alert-warning sam-tag" role="alert"><strong>SAM:</strong> zurzeit nicht relevant!</div>
                     <h2>HATEOAS</h2>
                     <ul>
                         <li>Hypermedia as the Engine of Application State</li>
-                        <li>Fixer Einstiegspunkt</li>
+                        <li>Fixer Einstiegspunkt in eine API</li>
                         <li>Hypertext zum Navigieren der API</li>
                         <li>Weitere Follow-Up Links in der Response</li>
+                        <li>Client braucht kein Wissen über die Architektur der API</li>
                     </ul>
                 </section>
                 <section>
-                    <div class="alert alert-warning sam-tag" role="alert"><strong>SAM:</strong> zurzeit nicht relevant!</div>
                     <h2>HATEOAS</h2>
                     <pre><code>
 GET /employees/123
