@@ -292,7 +292,7 @@ GET  api.openweathermap.org/data/2.5/weather?q=Zurich,ch
                             <li>Which method do I use?</li>
                             <li>Naming of resources</li>
                             <li>Naming in JSON</li>
-                            <li>Request Payload dos and don'ts</li>
+                            <li>Request Payload</li>
                         </ul>
                     </div>
                 </section>
@@ -601,7 +601,8 @@ GET /employees/1234
                         <pre><code>
 @GET
 @Path(/{employeeId})
-public Employee getEmployee(@PathParam("employeeId") String employeeId) { ... }
+public Employee getEmployee(@PathParam("employeeId") 
+                                String employeeId) { ... }
 
 ==>
 { id : "1234", name : "John Wayne" }
@@ -648,6 +649,13 @@ public void createEmployee(Employee employee) { ... }
 204 No Content
 
 </code></pre>
+                    </div>
+                </section>
+                <section data-transition="linear">
+                    <div>
+                        <h2>Postman</h2>
+
+                        <p><a href="chrome-extension://fdmmgilgnpjigdojojpjoooidkmcomcm/index.html">Live Demo</a></p>
                     </div>
                 </section>
                 <section>
