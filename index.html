@@ -86,9 +86,9 @@
                                 <li>Design your API 10'</li>
                                 <li>Review 5'</li>
                                 <li>Pause 10'</li>
-                                <li>REST@SAM 5' (nick)</li>
-                                <li>Postman 5' (nick, ben)</li>
-                                <li>Implementation 20' (dani)</li>
+                                <li>REST@SAM 5'</li>
+                                <li>Postman 5'</li>
+                                <li>Implementation 20'</li>
                                 <li>Review 15'</li>
                             </ul>
                         </li>
@@ -289,19 +289,19 @@ GET  api.openweathermap.org/data/2.5/weather?q=Zurich,ch
                         <h2>Conventions</h2>
 
                         <ul>
-                            <li>Which method do I use?</li>
-                            <li>Naming of resources</li>
-                            <li>Naming in JSON</li>
+                            <li>Welche Methode?</li>
+                            <li>Benennung der Ressourcen</li>
+                            <li>Naming im JSON</li>
                             <li>Request Payload</li>
                         </ul>
                     </div>
                 </section>
                 <section>
                     <div>
-                        <h2>Which method do I use?</h2>
+                        <h2>Welche Methode?</h2>
 
                         <p>POST GET PUT DELETE</p>
-                        <p> is not strictly </p>
+                        <p> != </p>
                         <p><strong>CRUD</strong>
                         </p>
                     </div>
@@ -321,7 +321,7 @@ DELETE  http://transport.opendata.ch/v1/stations/1234
 
                 </section>
                 <section>
-                    <div>
+                    <div> 
                         <h2>POST & PUT</h2>
                         <p>Beide Methoden können für CREATE und UPDATE verwendet werden.</p>
 
@@ -480,19 +480,19 @@ POST    http://transport.opendata.ch/v1/locations
                 </section>
                 <section>
                     <div>
-                        <h2>Naming of Resources</h2>
-                        <p>Verwende immer <strong>Nomen</strong>, um die Resourcen zu benennen.</p>
-                        <p>Verwende immer <strong>Plural</strong>, ausser es handelt sich <i>wirklich</i> um eine einzelne Resource und nicht eine Collection.</p>
+                        <h2>Benennung der Ressourcen</h2>
+                        <p>Verwende immer <strong>Nomen</strong>, um die Ressourcen zu benennen.</p>
+                        <p>Verwende immer <strong>Plural</strong>, ausser es handelt sich <i>wirklich</i> um eine einzelne Ressource und nicht eine Collection.</p>
                     </div>
                 </section>
                 <section>
                     <div>
-                        <h2>Naming of Resources</h2>
-                        <p>Wir exposen mit einer REST API die Resource <i>=Nomen</i>
+                        <h2>Benennung der Ressourcen</h2>
+                        <p>Wir exposen mit einer REST API die Ressource <i>=Nomen</i>
                         </p>
                         <p>und nicht die Operationen darauf <i>=Verben</i>
                         </p>
-                        <p>Die HTTP Methode sagt uns, <strong>was</strong> wir auf dieser Resource tun.</p>
+                        <p>Die HTTP Methode sagt uns, <strong>was</strong> wir auf dieser Ressource tun.</p>
 
                         <pre><code>
 
@@ -585,6 +585,16 @@ public Employee[] getEmployees() { ... }
 
 ==>
 [{ name : "John Wayne" }, ..., ]
+
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>Base Path</h2>
+                        <pre><code>
+@Path("/regservice/employees")
+public class EmployeeRestService { ... }
 
                         </code></pre>
                     </div>
