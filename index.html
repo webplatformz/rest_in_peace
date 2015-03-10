@@ -640,7 +640,7 @@ GET /employees/1234
                         <p>Server:</p>
                         <pre><code>
 @GET
-@Path(/{employeeId})
+@Path("/{employeeId}")
 public Employee getEmployee(@PathParam("employeeId") 
                                 String employeeId) { ... }
 
@@ -661,7 +661,7 @@ GET /employees?name=John
                         <p>Server:</p>
                         <pre><code>
 @GET
-public Employee getEmployees(@QueryParam("name" String name) { ... }
+public Employee getEmployees(@QueryParam("name") String name) { ... }
 
 ==>
 { id : "1234", name : "John Wayne" }
@@ -708,7 +708,7 @@ public void createEmployee(Employee employee) { ... }
 public Employee[] getEmployees() { ... }
 
 @GET
-@Path(/{employeeId})
+@Path("/{employeeId}")
 public Employee getEmployee(@PathParam("employeeId")
     String employeeId) { ... }
 
