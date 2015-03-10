@@ -748,16 +748,15 @@ GET /employees/123?expand=department
                 <section>
                     <h2>PATCH</h2>
                     <ul>
-                        <li>Partielles Update einer Ressource</li>
-                        <li>PATCH must patch atomically</li>
-                        <li>Not idempotent (Altough Can be implemented as so)</li>
+                        <li class="fragment">Partielles Update einer Ressource</li>
+                        <li class="fragment">PATCH muss atomar arbeiten</li>
+                        <li class="fragment">Nicht idempotent</li>
                     </ul>
 
-                    <p>PATCH wird zurzeit noch nicht flächendeckend unterstützt</p>
+                    <p class="fragment">PATCH wird zurzeit noch nicht flächendeckend unterstützt</p>
                 </section>
                 <section>
                     <h2>PATCH</h2>
-                    <p>Before patching</p>
                     <pre><code>
 GET /employees/123
 
@@ -773,12 +772,14 @@ GET /employees/123
                 </section>
                 <section>
                     <h2>PATCH</h2>
-                    <p>now Patching...</p>
                     <pre><code>
 PATCH /employees/123
-{
-    salary : 6000 
-}
+Content-Type: application/json-patch+json
+
+[
+    { op: "replace", path: "salary", value: 6000 },
+    { op: "replace", path: "name", value: "Joe" }
+]
 
 ==>
 200 OK
@@ -787,25 +788,24 @@ PATCH /employees/123
                 </section>
                 <section>
                     <h2>PATCH</h2>
-                    <p>After Patching</p>
                     <pre><code>
 GET /employees/123
 
 ==>
 {
     id: 123,
-    name: "John",
+    name: "Joe",
     prename : "Doe",
     departmentId : 1234,
-    salary : 6000
+    salary : 800
 }
   </code></pre>
                 </section>
                 <section>
                     <h2>HEAD</h2>
-                    <p>Die HEAD Methode entpspricht einem GET-Aufruf, jedoch wird dabei der Body der Response weggelassen.</p>
-                    <p>Die Header der HEAD Response müssen identisch zu dem Header der GET Response sein.</p>
-                    <pre><code>
+                    <p class="fragment">Die HEAD Methode entpspricht einem GET-Aufruf, jedoch wird dabei der Body der Response weggelassen.</p>
+                    <p class="fragment">Die Header der HEAD Response müssen identisch zu dem Header der GET Response sein.</p>
+                    <pre class="fragment"><code>
 HEAD /employees/123
 
 ==>
@@ -827,16 +827,17 @@ OPTIONS /employees  // Testet die employees Ressource
 200 OK  
 Allow: HEAD,GET,PUT,DELETE,OPTIONS
   </code></pre>
+                <p>ABER: OPTIONS ist nur bei wenigen Rest-API's implementiert.</p>
                 </section>
                 <section>
                     <h2>Versionierung</h2>
-                    <div class="alert alert-warning sam-tag" role="alert"><strong>SAM:</strong> nicht relevant!</div>
+                    <div class="alert alert-warning sam-tag" role="alert"><strong>SAM:</strong> noch nicht relevant!</div>
                     <img src="images/versioning.png"></img>
                 </section>
                 <section>
-                    <div class="alert alert-warning sam-tag" role="alert"><strong>SAM:</strong> nicht relevant!</div>
+                    <div class="alert alert-warning sam-tag" role="alert"><strong>SAM:</strong> zurzeit nicht relevant!</div>
                     <h2>Versionierung</h2>
-                    <p>Als Teil vor der Resource</p>
+                    <p>Als Teil vor der Ressource</p>
                     <pre><code>
 GET http://transport.opendata.ch/v1/locations
                         </code></pre>
@@ -846,7 +847,7 @@ GET http://transport.opendata.ch/locations?v=1
                         </code></pre>
                 </section>
                 <section>
-                    <div class="alert alert-warning sam-tag" role="alert"><strong>SAM:</strong> nicht relevant!</div>
+                    <div class="alert alert-warning sam-tag" role="alert"><strong>SAM:</strong> zurzeit nicht relevant!</div>
                     <h2>Versionierung</h2>
                     <p>Versionierung durch Accept Header</p>
                     <pre><code>
@@ -950,7 +951,7 @@ POST /ReadOnlyRessource
 </code></pre>
                 </section>
                 <section>
-                    <div class="alert alert-warning sam-tag" role="alert"><strong>SAM:</strong> nicht relevant!</div>
+                    <div class="alert alert-warning sam-tag" role="alert"><strong>SAM:</strong> zurzeit nicht relevant!</div>
                     <h2>HATEOAS</h2>
                     <ul>
                         <li>Hypermedia as the Engine of Application State</li>
@@ -960,7 +961,7 @@ POST /ReadOnlyRessource
                     </ul>
                 </section>
                 <section>
-                    <div class="alert alert-warning sam-tag" role="alert"><strong>SAM:</strong> nicht relevant!</div>
+                    <div class="alert alert-warning sam-tag" role="alert"><strong>SAM:</strong> zurzeit nicht relevant!</div>
                     <h2>HATEOAS</h2>
                     <pre><code>
 GET /employees/123
