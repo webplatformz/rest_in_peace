@@ -593,22 +593,31 @@ GET /locations?canton=Aargau&county=Baden
                     <div>
                         <h2>REST @ SAM</h2>
                         <p>JAX-RS with Jersey</p>
-                    </div>
-                </section>
-                <section>
-                    <div>
-                        <h2>Serializing and Deserializing</h2>
-                        <p>Automatisches Serialisieren und Deserialisieren:</p>
-                        <ul>
+                        <p class="fragment">Automatisches Serialisieren und Deserialisieren</p>
+                        <ul class="fragment">
                             <li>JSON mit Jackson</li>
                             <li>XML mit JAXB</li>
                         </ul>
+                        <p class="fragment">Der Accept-Header gibt an, wie die Antwort aussehen soll.</p>
+                                               <pre class="fragment"><code>
+Accept: application/json
+Accept: application/xml
+
+                        </code></pre>
+                        
                     </div>
                 </section>
                 <section>
                     <div>
                         <h2>Serializing and Deserializing</h2>
                         <p>Beispiel</p>
+                        <pre><code>
+                        
+GET     /employees
+
+Accept: application/json
+ </code></pre>
+
                         <pre><code>
 @GET
 public Employee[] getEmployees() { ... }
