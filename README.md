@@ -1,8 +1,4 @@
 # rest_in_peace
-Short speech about REST
-
-
-# rest_in_peace
 
 Kleiner Vortrag mit Workshop über REST-Services
 
