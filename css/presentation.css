@@ -1,45 +1,70 @@
 html.bg-dornier body {
     background: url("../images/presentation/lake_large.jpg");
 }
+
 span.zuehlke-header:before {
     content: "Demo - ";
     font-weight: normal;
     color: #dddddd;
 }
+
 html.zuehlke-bg-parallax body {
     //background-image: url("../images/presentation/sidney_night.jpg");
     //background-image: url("../images/presentation/blackboard.jpg");
-
 }
 /* Style for print parallax */
 
 body.print-pdf section.zuehlke-bg-parallax {
     /*Make sure paralax background is visible when print mode is active*/
+    
     background: url("../../images/presentation/sidney_night.jpg");
     background-size: auto 100%;
     background-repeat: no-repeat;
 }
 
-.content-json pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
-.string { color: green; }
-.number { color: darkorange; }
-.boolean { color: blue; }
-.null { color: magenta; }
-.key { color: red; }
+.reveal pre code {
+    display: block;
+}
 
-.rest-table td{
-	border-bottom:0.1em solid #DEDEDE;
+.content-json pre {
+    outline: 1px solid #ccc;
+    padding: 5px;
+    margin: 5px;
+}
+
+.string {
+    color: green;
+}
+
+.number {
+    color: darkorange;
+}
+
+.boolean {
+    color: blue;
+}
+
+.null {
+    color: magenta;
+}
+
+.key {
+    color: red;
+}
+
+.rest-table td {
+    border-bottom: 0.1em solid #DEDEDE;
 }
 
 .alert.sam-tag {
-    position:absolute; 
-    top:0;
-    right:0;
+    position: absolute;
+    top: 0;
+    right: 0;
     font-size: 0.7em;
     padding: 2px 10px;
 }
 
-#callout { 
+#callout {
     border-left-color: #1b809e;
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
@@ -50,5 +75,5 @@ body.print-pdf section.zuehlke-bg-parallax {
     border-style: solid;
     border-width: 1px 1px 1px 5px;
     margin: 20px 0;
-    padding: 20px;    
+    padding: 20px;
 }

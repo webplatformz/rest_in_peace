@@ -27,7 +27,7 @@
     <link href='http://fonts.googleapis.com/css?family=Gochi+Hand' rel='stylesheet' type='text/css'>
 
     <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
 
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
     <script>
@@ -140,7 +140,7 @@
                     </p>
                 </section>
             </section>
-            
+
             <section data-transition="linear">
                 <h2>Methoden</h2>
                 <br />
@@ -283,7 +283,7 @@ GET  api.openweathermap.org/data/2.5/weather?q=Zurich,ch
                         </ul>
                     </div>
                 </section>
-                 
+
                 <section>
                     <img src="images/versioning.png"></img>
                 </section>
@@ -312,7 +312,7 @@ DELETE  http://transport.opendata.ch/v1/stations/1234
 
                 </section>
                 <section>
-                    <div> 
+                    <div>
                         <h2>POST & PUT</h2>
                         <p>Beide Methoden können für CREATE und UPDATE verwendet werden.</p>
 
@@ -474,7 +474,7 @@ POST    http://transport.opendata.ch/v1/locations
                         <h2>POST</h2>
 
                         <p>POST darf verwendet werden, wenn die Query Parameter eine gefährlich grosse Länge annehmen könnten. Zum Beispiel, wenn ich n Rufnummern einem Standort zuweisen möchte:</p>
-                        
+
                         <pre class="fragment"><code>
 
 PUT    /numbers/1,2,3,4,5,6,7,...,756879895 
@@ -484,7 +484,7 @@ PUT    /numbers/1,2,3,4,5,6,7,...,756879895
 }
 
 </code></pre>
-                        
+
                         <pre class="fragment"><code>
 
 POST    /numbers/locationAssignment
@@ -495,8 +495,8 @@ POST    /numbers/locationAssignment
 }
 
 </code></pre>
-                        
-                        
+
+
                     </div>
                 </section>
                 <section>
@@ -590,12 +590,12 @@ GET /locations?canton=Aargau&county=Baden
                             <li>XML mit JAXB</li>
                         </ul>
                         <p class="fragment">Der Accept-Header gibt an, wie die Antwort aussehen soll.</p>
-                                               <pre class="fragment"><code>
+                        <pre class="fragment"><code>
 Accept: application/json
 Accept: application/xml
 
                         </code></pre>
-                        
+
                     </div>
                 </section>
                 <section>
@@ -695,7 +695,8 @@ public void createEmployee(Employee employee) { ... }
                     <div>
                         <h2>Postman</h2>
 
-                        <p><a href="chrome-extension://fdmmgilgnpjigdojojpjoooidkmcomcm/index.html" target="_blank">Live Demo</a></p>
+                        <p><a href="chrome-extension://fdmmgilgnpjigdojojpjoooidkmcomcm/index.html" target="_blank">Live Demo</a>
+                        </p>
                     </div>
                 </section>
                 <section>
@@ -855,7 +856,7 @@ OPTIONS /employees
 200 OK  
 Allow: HEAD,GET,PUT,DELETE,OPTIONS
   </code></pre>
-                <p class="fragment">ABER: OPTIONS ist nur bei wenigen Rest-API's implementiert.</p>
+                    <p class="fragment">ABER: OPTIONS ist nur bei wenigen Rest-API's implementiert.</p>
                 </section>
                 <section>
                     <h2>Versionierung</h2>
@@ -960,7 +961,7 @@ POST /employees
 ==>
 422 Unprocessable Entity
 </code></pre>
-                </section> 
+                </section>
                 <section>
                     <h2>418 I'm a teapot</h2>
                     <p>Ein Teekrug erhält eine Anweisung zum Kaffee brühen.</p>
@@ -1017,9 +1018,12 @@ GET /employees/123
                 <h2>QA &amp; Feedback</h2>
                 <p>
                     <ul>
-                        <li><span><a href="geisha.bluenet.ch/applikationen/sam/rest_services_guidelinse">Wiki Guidelines</a></span></li>
-                        <li><span><a href="https://www.youtube.com/watch?v=hdSrT4yjS1g">A must see Video</a></span></li>
-                        <li><span><a href="http://slides.com/veithzach/rest01#/">A REST Guide</a></span></li>    
+                        <li><span><a href="geisha.bluenet.ch/applikationen/sam/rest_services_guidelinse">Wiki Guidelines</a></span>
+                        </li>
+                        <li><span><a href="https://www.youtube.com/watch?v=hdSrT4yjS1g">A must see Video</a></span>
+                        </li>
+                        <li><span><a href="http://slides.com/veithzach/rest01#/">A REST Guide</a></span>
+                        </li>
                     </ul>
                 </p>
             </section>
