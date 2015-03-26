@@ -641,8 +641,8 @@ GET /employees/1234
                         <pre><code>
 @GET
 @Path("/{employeeId}")
-public Employee getEmployee(@PathParam("employeeId") 
-                                String employeeId) { ... }
+public Employee getEmployee(@PathParam("employeeId")
+        String employeeId)
 
 ==>
 { id : "1234", name : "John Wayne" }
@@ -661,7 +661,8 @@ GET /employees?name=John
                         <p>Server:</p>
                         <pre><code>
 @GET
-public Employee getEmployees(@QueryParam("name") String name) { ... }
+public Employee getEmployees(@QueryParam("name") 
+        String name)
 
 ==>
 { id : "1234", name : "John Wayne" }
@@ -683,7 +684,7 @@ POST /employees
                         <p>Server:</p>
                         <pre><code>
 @POST
-public void createEmployee(Employee employee) { ... }
+public void createEmployee(Employee employee)
 
 ==>
 204 No Content
@@ -702,26 +703,7 @@ public void createEmployee(Employee employee) { ... }
                 <section>
                     <div>
                         <h2>Hands On!</h2>
-                        <p>Cheatsheet</p>
-                        <pre><code>
-
-@GET
-public Employee[] getEmployees() { ... }
-
-@GET
-@Path("/{employeeId}")
-public Employee getEmployee(@PathParam("employeeId")
-    String employeeId) { ... }
-
-@GET
-public Employee getEmployees(@QueryParam("name") 
-    String name) { ... }
-
-@POST
-public void createEmployee(Employee employee) { ... }
-
-</code></pre>
-
+                        
                     </div>
                 </section>
             </section>
@@ -916,7 +898,7 @@ POST /employees
                     <p>Der Client muss sich authentisieren</p>
                     <p>In der Response schickt der Server ein WWW-Authenticate Header, um die Authentisierung zu veranlassen.</p>
                     <pre><code>
-GET /Secrets
+GET /secrets
 
 ==>
 401 Unauthorized
@@ -937,7 +919,7 @@ GET /employees/999999999
                     <h2>405 Method Not Allowed</h2>
                     <p>Das Bearbeiten der Anfrage wird vom Server für diese Ressource nicht bereitgestellt. z.B. PUT auf einer Readonly Ressource</p>
                     <pre><code>
-PUT /ReadOnlyRessource/1
+PUT /readOnlyResource/1
 
 {
     title : "RESTful Web Services Cookbook"
@@ -955,7 +937,7 @@ PUT /ReadOnlyRessource/1
 POST /employees
 
 {
-    employeesname : "John Doe"
+    employeesname : "John Doe",
     employeessalary : 5000
 }
 ==>
